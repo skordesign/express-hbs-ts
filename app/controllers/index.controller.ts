@@ -19,8 +19,8 @@ router.get('/:name', (req: Request, res: Response) => {
     let { name } = req.params;
 
     // Greet the given name
-    res.send(`Hello, ${name}`);
+    res.render('index', { message: `Hello, ${name}` });
 });
 
 // Export the express.Router() instance to be used by server.ts
-export const WelcomeController: Router = router;
+export const IndexController: Router = router;

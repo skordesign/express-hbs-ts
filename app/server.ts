@@ -4,8 +4,9 @@
 import express = require('express');
 import exphbs = require('express-handlebars');
 // Import WelcomeController from controllers entry point
-import { WelcomeController } from './controllers';
+import { IndexController } from './controllers';
 import * as path from 'path';
+import "reflect-metadata";
 // Create a new express application instance
 const app: express.Application = express();
 // The port the express app will listen on
@@ -20,7 +21,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 app.use(express.static(path.join(path.join(__dirname, "../app/public"))))
 // Mount the WelcomeController at the /welcome route
-app.use('/welcome', WelcomeController);
+app.use('/index', IndexController);
 
 // Serve the application at the given port
 app.listen(port, () => {
